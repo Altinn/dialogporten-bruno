@@ -1,0 +1,15 @@
+meta {
+  name: List activities
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/activities
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: e6268a01-aa24-fe73-a56d-a3e04c62c34f
+}

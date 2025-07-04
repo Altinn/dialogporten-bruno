@@ -1,0 +1,21 @@
+meta {
+  name: Set System Label
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/api/v1/enduser/dialogs/:dialogId/systemlabels/
+  body: json
+  auth: none
+}
+
+params:path {
+  dialogId: 0192511e-43aa-71a4-aa68-6ec2941aacea
+}
+
+body:json {
+  {
+      "label": "bin"
+  }
+}

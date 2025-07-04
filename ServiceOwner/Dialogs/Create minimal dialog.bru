@@ -1,0 +1,51 @@
+meta {
+  name: Create minimal dialog
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: text/plain
+}
+
+body:json {
+  {
+      "serviceResource": "urn:altinn:resource:super-simple-service",
+      "party": "{{PARTY_PERSON}}",
+      "status": "New",
+      "progress": 10,
+      "content": {
+          "title": {
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "VassenDialog"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "VassenDialog"
+                  }
+              ]
+          },
+          "summary": {
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Et sammendrag her. Maks 200 tegn, ingen HTML-støtte. Påkrevd. Vises i liste."
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "A summary here. Max 200 characters, no HTML support. Required. Displayed in list."
+                  }
+              ]
+          }
+      }
+  }
+}

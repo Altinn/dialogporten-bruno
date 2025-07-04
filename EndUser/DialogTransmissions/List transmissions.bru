@@ -1,0 +1,15 @@
+meta {
+  name: List transmissions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/enduser/dialogs/:dialogId/transmissions
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: a1f99001-ed97-f176-b3d9-f4d04847b140
+}

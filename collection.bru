@@ -1,0 +1,16 @@
+meta {
+  name: Dialogporten
+  seq: 1
+}
+
+auth {
+  mode: none
+}
+
+script:pre-request {
+  const Altinn = require('./Dialogporten_pre_request.js');
+}
+
+docs {
+  Dialogporten Request collection
+}

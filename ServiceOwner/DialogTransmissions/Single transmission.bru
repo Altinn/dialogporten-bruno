@@ -1,0 +1,16 @@
+meta {
+  name: Single transmission
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/transmissions/:transmissionId
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: 3efb9001-17af-4d72-bdb4-13b0c2581f6c
+  transmissionId: 3efb9001-18af-0c72-8e84-02dc88d1f7e1
+}

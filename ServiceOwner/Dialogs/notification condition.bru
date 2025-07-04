@@ -1,0 +1,20 @@
+meta {
+  name: notification condition
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/actions/should-send-notification?conditionType=Exists&activityType=DialogCreated
+  body: none
+  auth: none
+}
+
+params:query {
+  conditionType: Exists
+  activityType: DialogCreated
+}
+
+params:path {
+  dialogId: 01934ea4-123c-7214-8168-022367528297
+}

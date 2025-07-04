@@ -1,0 +1,22 @@
+meta {
+  name: List dialogs
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~Limit: 3
+  ~OrderBy: dueAt_asc,updatedAt_desc
+  ~Search: title-search-hit
+  ~CreatedAfter: 2023-10-27T10:00:00Z
+}
+
+headers {
+  Accept: text/plain
+}

@@ -1,0 +1,53 @@
+# Environment files with sensitive data
+.env
+.env.local
+.env.production
+.env.staging
+.env.test
+
+# Bruno specific files that might contain sensitive data
+*.bru.bak
+*.bru.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if any)
+node_modules/
+
+# Test results
+test-results/
+results.html
+
+# Cache files
+.cache/
+*.cache
+
+# Backup files
+*.backup
+*.bak
+
+# Local configuration files
+config.local.*
+settings.local.* 

@@ -1,0 +1,15 @@
+meta {
+  name: List activities
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/enduser/dialogs/:dialogId/activities
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: 8a1d8a01-516a-7772-b618-06d14c0fb122
+}

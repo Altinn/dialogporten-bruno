@@ -1,0 +1,15 @@
+meta {
+  name: Label Log
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/enduser/dialogs/:dialogId/labellog
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: 0192511e-43aa-71a4-aa68-6ec2941aacea
+}
