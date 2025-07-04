@@ -1,0 +1,166 @@
+meta {
+  name: Update dialog
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId
+  body: json
+  auth: none
+}
+
+params:query {
+  ~process: urn:test:process:2
+  ~progress: 92
+}
+
+params:path {
+  dialogId: 0194ff4e-a65c-716e-add9-71958991a646
+}
+
+headers {
+  Content-Type: application/json
+  Accept: text/plain
+}
+
+body:json {
+  {
+      "id": "01950199-ce68-77e4-8fad-c65ff19b0d5a",
+      "revision": "c550f92e-c76a-497f-ba26-30edd50032d9",
+      "org": "nav",
+      "serviceResource": "urn:altinn:resource:nav_tiltaksarrangor_deltakeroversikt-koordinator",
+      "serviceResourceType": "genericaccessresource",
+      "party": "urn:altinn:person:identifier-no:08895699684",
+      "progress": 21,
+      "createdAt": "2025-02-13T23:16:51.9421070Z",
+      "updatedAt": "2025-02-13T23:16:51.9421070Z",
+      "status": "New",
+      "systemLabel": "Default",
+      "content": {
+          "title": {
+              "value": [
+                  {
+                      "value": "Sens",
+                      "languageCode": "en"
+                  },
+                  {
+                      "value": "Sens",
+                      "languageCode": "nb"
+                  }
+              ],
+              "mediaType": "text/plain"
+          },
+          "summary": {
+              "value": [
+                  {
+                      "value": "A sens summary here. Max 200 characters, no HTML support. Required. Displayed in list.",
+                      "languageCode": "en"
+                  },
+                  {
+                      "value": "Et sens sammendrag her. Maks 200 tegn, ingen HTML-støtte. Påkrevd. Vises i liste.",
+                      "languageCode": "nb"
+                  }
+              ],
+              "mediaType": "text/plain"
+          },
+          "mainContentReference": {
+              "value": [
+                  {
+                      "value": "https://nrk.no",
+                      "languageCode": "nb"
+                  }
+              ],
+              "mediaType": "application/vnd.dialogporten.frontchannelembed-url;type=text/markdown"
+          }
+      },
+      "attachments": [
+          {
+              "id": "01950199-ce68-77e4-8fe6-74dd7edf7c5b",
+              "displayName": [
+                  {
+                      "value": "Dialog attachment display name",
+                      "languageCode": "en"
+                  },
+                  {
+                      "value": "Dialogvedlegg visningsnavn",
+                      "languageCode": "nb"
+                  }
+              ],
+              "urls": [
+                  {
+                      "id": "01950199-ce68-77e4-8ff3-3c37cb46faae",
+                      "url": "https://digdir.apps.tt02.altinn.no/some-url",
+                      "mediaType": "foo",
+                      "consumerType": "Gui"
+                  }
+              ]
+          }
+      ],
+      "guiActions": [
+          {
+              "id": "01950199-ce68-77e4-9068-12068e78010f",
+              "action": "submit",
+              "url": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/#/instance/50756302/58d88b01-8840-8771-a6dd-e51e9809df2c",
+              "isDeleteDialogAction": false,
+              "priority": "Secondary",
+              "httpMethod": "GET",
+              "title": [
+                  {
+                      "value": "A GUI action titile",
+                      "languageCode": "en"
+                  },
+                  {
+                      "value": "En GUI-handlings tittel",
+                      "languageCode": "nb"
+                  }
+              ]
+          },
+          {
+              "id": "01950199-ce68-77e4-907b-9a514efda284",
+              "action": "sit",
+              "url": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/#/instance/50756302/58d88b01-8840-8771-a6dd-e51e9809df2c",
+              "isDeleteDialogAction": false,
+              "priority": "Primary",
+              "httpMethod": "POST",
+              "title": [
+                  {
+                      "value": "Go to",
+                      "languageCode": "en"
+                  },
+                  {
+                      "value": "Gå til innsending",
+                      "languageCode": "nb"
+                  }
+              ],
+              "prompt": [
+                  {
+                      "value": "Are you sure?",
+                      "languageCode": "en"
+                  },
+                  {
+                      "value": "Er du sikker?",
+                      "languageCode": "nb"
+                  }
+              ]
+          }
+      ],
+      "apiActions": [
+          {
+              "id": "01950199-ce68-77e4-8fdb-f3f876b45599",
+              "action": "submit",
+              "endpoints": [
+                  {
+                      "id": "01950199-ce68-77e4-8fdc-2b03dcd5c8bf",
+                      "version": "20231015",
+                      "url": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/#/instance/50756302/58d88b01-8840-8771-a6dd-e51e9809df2c/data?dataType=mainform-20231015",
+                      "httpMethod": "POST",
+                      "requestSchema": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/api/jsonschema/mainform-20231015",
+                      "responseSchema": "https://docs.altinn.studio/swagger/altinn-app-v1.json#/components/schemas/DataElement",
+                      "deprecated": false
+                  }
+              ]
+          }
+      ],
+  }
+}

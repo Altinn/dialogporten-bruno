@@ -1,0 +1,67 @@
+meta {
+  name: Create transmission
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/transmissions
+  body: json
+  auth: none
+}
+
+params:path {
+  dialogId: a1f99001-ed97-f176-b3d9-f4d04847b140
+}
+
+headers {
+  Content-Type: application/json
+  Accept: text/plain
+}
+
+body:json {
+  {
+      "type": "Information",
+      "sender": {
+          "actorType": "serviceOwner"
+      },
+      "attachments": [
+          {
+              "displayName": [
+                  {
+                      "languageCode": "en",
+                      "value": "🦅 USA! USA! USA! 🦅"
+                  }
+              ],
+              "urls": [
+                  {
+                      "url": "https://digdir.apps.tt02.altinn.no/some-other-url",
+                      "consumerType": "Gui"
+                  }
+              ]
+          }
+      ],
+      "content": {
+          "title": {
+              "value": [
+                  {
+                      "languageCode": "nn",
+                      "value": "🫎 NOREG! NOREG! NOREG! 🫎"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "🦅 USA! USA! USA! 🦅"
+                  }
+              ]
+          },
+          "summary": {
+              "value": [
+                  {
+                      "languageCode": "en",
+                      "value": "🦅 USA! USA! USA! 🦅"
+                  }
+              ]
+          }
+      }
+  }
+}

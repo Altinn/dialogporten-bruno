@@ -1,0 +1,15 @@
+meta {
+  name: List records
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/enduser/dialogs/:dialogId/seenLog
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: cbc28e01-7640-3674-bb2a-9ab0ecd22ba6
+}

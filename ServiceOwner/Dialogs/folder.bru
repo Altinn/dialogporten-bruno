@@ -1,0 +1,25 @@
+meta {
+  name: Dialogs
+  seq: 1
+}
+
+script:pre-request {
+  bru.setVar("PARTY_PERSON", "urn:altinn:person:identifier-no:08895699684"); // ROMANTISK DRÅPE
+  //bru.setVar("PARTY_ORGANIZATION", "urn:altinn:organization:identifier-no:313345475"); // SLAKK ULYDIG TIGER AS
+  bru.setVar("PARTY_ORGANIZATION", "urn:altinn:organization:identifier-no:313345475"); // SLAKK ULYDIG TIGER AS
+  
+  
+  await (new Altinn(req)).Authenticate({
+       "orgNo": "991825827", // Digdir
+      //"orgNo": "986186999", // STATENS SIVILRETTSFORVALTNING
+      // "orgNo": "974761076", // Skatteetaten
+      //"orgNo": "889640782", // NAV
+      //"orgNo": "974760282", // DMF
+      "tokenType": "enterprise",
+      //"org": "digdir",
+      "scopes": "digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search digdir:dialogporten.serviceprovider.legacyhtml altinn:system/notifications.condition.check digdir:dialogporten.correspondence"
+  });
+  
+  
+  
+}

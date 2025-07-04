@@ -1,0 +1,42 @@
+meta {
+  name: EndUser
+}
+
+script:pre-request {
+  const altinn = new Altinn(req);
+  
+  await (new Altinn(req)).Authenticate({
+      /* */
+      //"pid": "24885699770",
+      //"pid": "02834699772",
+      //"pid": "14886498226",
+      //"pid": "26849798595",
+      //"pid": "04816296787",
+      //"pid": "20855496837",
+      "pid": "08895699684",
+      //"pid": "24267200145", // ROMANTISK DRÅPE
+      "tokenType": "person",
+      /**/
+  
+      /* 
+      // Legacy enterprise user   
+      "tokenType": "enterpriseuser",
+      "orgNo": "974760673",
+      "userName": "something",     
+      "partyId": "51198414", // ORDINÆR HJELPELINJE 
+      "userId": "1263321", // ORDINÆR HJELPELINJE   
+      /**/
+  
+      
+      // System user   
+      //  "tokenType": "systemuser",
+      //  "systemUserId": "e3b87b08-dce6-4edd-8308-db887950a83b",
+      // "systemUserOrg": "912345678",
+      
+  
+      "scopes": "digdir:dialogporten"
+  
+  });
+  
+  
+}

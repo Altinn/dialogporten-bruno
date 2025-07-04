@@ -1,0 +1,15 @@
+{
+  "version": "1",
+  "name": "Dialogporten",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "size": 1.015777587890625,
+  "filesCount": 466,
+  "clientCertificates": {
+    "enabled": true,
+    "certs": []
+  }
+}

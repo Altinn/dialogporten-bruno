@@ -1,0 +1,15 @@
+meta {
+  name: Purge dialog
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/actions/purge
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: 01923282-e30f-72db-ad8a-ce74c6ad7c89
+}

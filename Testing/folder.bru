@@ -1,0 +1,13 @@
+meta {
+  name: Testing
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "orgNo": "991825827", // Digdir
+      //"orgNo": "974761076", // Skatteetaten
+      //"orgNo": "889640782", // NAV
+      "tokenType": "enterprise",
+      "scopes": "digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search altinn:system/notifications.condition.check digdir:dialogporten.developer.test"
+  });
+}

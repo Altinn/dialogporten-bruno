@@ -1,0 +1,33 @@
+meta {
+  name: Patch Single dialog
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId
+  body: json
+  auth: none
+}
+
+params:query {
+  ~: null
+}
+
+params:path {
+  dialogId: 019593e2-4085-75e4-8d81-e2b503466294
+}
+
+headers {
+  Content-Type: application/json-patch+json
+}
+
+body:json {
+  [
+      {
+          "op": "replace",
+          "path": "progress",
+          "value": 2
+      }
+  ]
+}

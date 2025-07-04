@@ -1,0 +1,362 @@
+meta {
+  name: gql-post-test
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: text/plain
+}
+
+body:json {
+  {
+      "serviceResource": "urn:altinn:resource:ttd-dialogporten-automated-tests",
+      "party": "urn:altinn:person:identifier-no:14886498226",
+      "status": "New",
+      "progress": 10,
+      "content": {
+          "title": {
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Fin tittel"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "Nice title"
+                  }
+              ]
+          },
+          "summary": {
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Et sammendrag her. Maks 200 tegn, ingen HTML-støtte. Påkrevd. Vises i liste."
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "A summary here. Max 200 characters, no HTML support. Required. Displayed in list."
+                  }
+              ]
+          },
+          "additionalInfo": {
+              "mediaType": "text/markdown",
+              "value": [
+                  {
+                      "languageCode": "en",
+                      "value": "Some additional info, *supports* **markdown**"
+                  },
+                  {
+                      "languageCode": "nb",
+                      "value": "Tillegsinformasjon, *støtter* **markdown**"
+                  }
+              ]
+          },
+          "mainContentReference": {
+              "mediaType": "application/vnd.dialogporten.frontchannelembed+json;type=markdown",
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "https://dummy-address.no"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "https://dummy-address.com"
+                  }
+              ]
+          }
+      },
+      "transmissions": [
+          {
+              "type": "Information",
+              "authorizationAttribute": "element1",
+              "sender": {
+                  "actorType": "serviceOwner"
+              },
+              "attachments": [
+                  {
+                      "displayName": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelse visningsnavn"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission attachment display name"
+                          }
+                      ],
+                      "urls": [
+                          {
+                              "url": "https://digdir.apps.tt02.altinn.no/some-other-url",
+                              "consumerType": "Gui"
+                          }
+                      ]
+                  }
+              ],
+              "content": {
+                  "title": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelsestittel"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission title"
+                          }
+                      ]
+                  },
+                  "summary": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelse oppsummering"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission summary"
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "type": "Information",
+              "sender": {
+                  "actorType": "serviceOwner"
+              },
+              "attachments": [
+                  {
+                      "displayName": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Visningsnavn for forsendelsesvedlegg "
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission attachment display name"
+                          }
+                      ],
+                      "urls": [
+                          {
+                              "url": "https://digdir.apps.tt02.altinn.no/some-other-url",
+                              "consumerType": "Gui"
+                          }
+                      ]
+                  }
+              ],
+              "content": {
+                  "title": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelsesstittel"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission title"
+                          }
+                      ]
+                  },
+                  "summary": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Transmisjon oppsummering"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission summary"
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "type": "Information",
+              "authorizationAttribute": "elementius",
+              "sender": {
+                  "actorType": "serviceOwner"
+              },
+              "attachments": [
+                  {
+                      "displayName": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Visningsnavn for forsendelsesvedlegg"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission attachment display name"
+                          }
+                      ],
+                      "urls": [
+                          {
+                              "url": "https://digdir.apps.tt02.altinn.no/some-other-url",
+                              "consumerType": "Gui"
+                          }
+                      ]
+                  }
+              ],
+              "content": {
+                  "title": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelsetittel"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission title"
+                          }
+                      ]
+                  },
+                  "summary": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelsesoppsummering"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission summary"
+                          }
+                      ]
+                  }
+              }
+          }
+      ],
+      "attachments": [
+          {
+              "displayName": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Dialogvedlegg visningsnavn"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "Dialog attachment display name"
+                  }
+              ],
+              "urls": [
+                  {
+                      "url": "https://digdir.apps.tt02.altinn.no/some-url",
+                      "consumerType": "gui"
+                  }
+              ]
+          }
+      ],
+      "searchTags": [
+          {
+              "value": "something searchable"
+          },
+          {
+              "value": "more search"
+          }
+      ],
+      "guiActions": [
+          {
+              "title": [
+                  {
+                      "value": "En GUI-handlings tittel",
+                      "languageCode": "nb-no"
+                  },
+                  {
+                      "value": "A GUI action titile",
+                      "languageCode": "en-US"
+                  }
+              ],
+              "action": "submit",
+              "url": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/#/instance/50756302/58d88b01-8840-8771-a6dd-e51e9809df2c",
+              "priority": "Secondary"
+          },
+          {
+              "action": "sit",
+              "url": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/#/instance/50756302/58d88b01-8840-8771-a6dd-e51e9809df2c",
+              "priority": "Primary",
+              "httpMethod": "Post",
+              "title": [
+                  {
+                      "value": "Gå til innsending",
+                      "languageCode": "nb-no"
+                  },
+                  {
+                      "value": "Go to",
+                      "languageCode": "en"
+                  }
+              ],
+              "prompt": [
+                  {
+                      "value": "Er du sikker?",
+                      "languageCode": "nb-no"
+                  },
+                  {
+                      "value": "Are you sure?",
+                      "languageCode": "en_gb"
+                  }
+              ]
+          }
+      ],
+      "apiActions": [
+          {
+              "action": "submit",
+              "endpoints": [
+                  {
+                      "version": "20231015",
+                      "url": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/#/instance/50756302/58d88b01-8840-8771-a6dd-e51e9809df2c/data?dataType=mainform-20231015",
+                      "httpMethod": "POST",
+                      "accepts": [
+                          "application/json"
+                      ],
+                      "requestSchema": "https://digdir.apps.tt02.altinn.no/digdir/super-simple-service/api/jsonschema/mainform-20231015",
+                      "responseSchema": "https://docs.altinn.studio/swagger/altinn-app-v1.json#/components/schemas/DataElement"
+                  }
+              ]
+          }
+      ],
+      "activities": [
+          {
+              "createdAt": "2023-11-16T13:35:44.2268490Z",
+              "type": "DialogCreated",
+              "performedBy": {
+                  "actorType": "serviceOwner"
+              }
+          },
+          {
+              "createdAt": "2023-11-16T13:35:44.2268490Z",
+              "type": "Information",
+              "performedBy": {
+                  "actorType": "serviceOwner"
+              },
+              "description": [
+                  {
+                      "value": "Skjema opprettet og forhåndsutfylt",
+                      "languageCode": "nb"
+                  },
+                  {
+                      "value": "Form created and pre-filled",
+                      "languageCode": "en"
+                  }
+              ]
+          }
+      ]
+  }
+}
+
+script:pre-request {
+  var uuid = require('uuid');
+  var dialogElementId = uuid.v4();
+  bru.setVar("dialogElementId", dialogElementId);
+  console.log("dialogElementId", dialogElementId);
+  
+  var activityId = uuid.v4();
+  bru.setVar("activityId", activityId);
+  console.log("activityId", activityId);
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Single record
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/seenLog/:seenLogId
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: cbc28e01-7640-3674-bb2a-9ab0ecd22ba6
+  seenLogId: 44e7b86a-6813-4457-a432-9a1564f28b40
+}

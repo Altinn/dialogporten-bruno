@@ -1,0 +1,15 @@
+meta {
+  name: Get Single dialog
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId
+  body: none
+  auth: none
+}
+
+params:path {
+  dialogId: 019324db-9e5f-740a-8538-2f16ffcd1a4b
+}

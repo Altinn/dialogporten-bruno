@@ -1,0 +1,22 @@
+meta {
+  name: List Dialogs
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/enduser/dialogs?Party=urn:altinn:person:identifier-no:08895699684
+  body: none
+  auth: inherit
+}
+
+params:query {
+  Party: urn:altinn:person:identifier-no:08895699684
+  ~Party: urn:altinn:person:identifier-no:20815497741
+  ~CreatedAfter: 2025-02-25T16:04:09.159Z
+  ~CreatedBefore: 2025-02-27T16:04:09.159Z
+  ~Party: urn:altinn:person:identifier-no:14886498226
+  ~ServiceResource: urn:altinn:resource:ttd-dialogporten-performance-test-01
+  ~continuationToken: createdat_2023-11-03T12:07:53.5292010Z,id_15958b01-b927-da71-bf47-6702a00eb91b
+  ~Party: urn:altinn:organization:identifier-no:910955489
+}

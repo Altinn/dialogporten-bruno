@@ -1,0 +1,35 @@
+meta {
+  name: Create activity
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/activities
+  body: json
+  auth: none
+}
+
+params:path {
+  dialogId: 0194ff01-be5a-749a-9917-b0d3b228c4d5
+}
+
+headers {
+  Content-Type: application/json
+  Accept: text/plain
+}
+
+body:json {
+  {
+      "type": "Information",
+      "performedBy": {
+          "actorType": "serviceOwner"
+      },
+      "description": [
+          {
+              "value": "more new",
+              "languageCode": "nb"
+          }
+      ]
+  }
+}
