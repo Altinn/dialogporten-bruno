@@ -56,8 +56,8 @@ script:pre-request {
   bru.setVar("INSTANCEID", "0dbc1da6-f744-4fff-83bc-131e7988a1bb");
   
   
-  bru.setVar("SBLACCESS_APIKEY", "6f8ee9d73d454e87abc60d28b5189b5b");
-  bru.setVar("APPACCESS_APIKEY", "3c36605558524707aa41588db9099cac");
+  bru.setVar("SBLACCESS_APIKEY", process.env.Sbl_Access_ApiKey);
+  bru.setVar("APPACCESS_APIKEY", process.env.App_Access_ApiKey);
   
   // Pågående sak hos Tolletaten
   bru.setVar("PARTYID", "50759986");
