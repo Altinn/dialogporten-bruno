@@ -1,0 +1,15 @@
+meta {
+  name: ResourceList
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/resourcelist
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Delete a given subscription
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrlPlatform}}/events/api/v1/subscriptions/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 3177
+}
+
+headers {
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get a specific subscription
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrlPlatform}}/events/api/v1/subscriptions/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 33382348
+}
+
+settings {
+  encodeUrl: true
+}

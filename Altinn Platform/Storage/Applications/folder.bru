@@ -1,0 +1,16 @@
+meta {
+  name: Applications
+  seq: 2
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "tokenType": "platform",
+      "app": "studio.designer"
+  });
+  
+}

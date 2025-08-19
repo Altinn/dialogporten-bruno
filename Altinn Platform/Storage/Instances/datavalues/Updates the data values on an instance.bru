@@ -1,0 +1,34 @@
+meta {
+  name: Updates the data values on an instance.
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrlPlatform}}/storage/api/v1/instances/:instanceOwnerPartyId/:instanceGuid/datavalues
+  body: json
+  auth: inherit
+}
+
+params:path {
+  instanceOwnerPartyId: {{PARTYID}}
+  instanceGuid: {{INSTANCEID}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+  Ocp-Apim-Subscription-Key: {{SubscriptionKey}}
+}
+
+body:json {
+  {
+    "values": {
+      "foo": "bar"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

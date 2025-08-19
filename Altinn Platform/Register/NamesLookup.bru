@@ -1,0 +1,29 @@
+meta {
+  name: NamesLookup
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrlPlatform}}/register/api/v1/parties/nameslookup
+  body: json
+  auth: inherit
+}
+
+headers {
+  Ocp-Apim-Subscription-Key: {{SubscriptionKey}}
+}
+
+body:json {
+  {
+    "parties": [
+      {
+        "OrgNo": "991825827"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Exchange
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrlPlatform}}/authentication/api/v1/exchange/maskinporten
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
+}
+
+settings {
+  encodeUrl: true
+}

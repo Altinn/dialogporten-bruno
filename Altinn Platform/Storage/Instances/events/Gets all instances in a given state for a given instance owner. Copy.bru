@@ -1,0 +1,20 @@
+meta {
+  name: Gets all instances in a given state for a given instance owner. Copy
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/sbl/instances/:instanceOwnerPartyId/:instanceGuid/events
+  body: none
+  auth: inherit
+}
+
+params:path {
+  instanceOwnerPartyId: {{PARTYID}}
+  instanceGuid: {{INSTANCEID}}
+}
+
+settings {
+  encodeUrl: true
+}

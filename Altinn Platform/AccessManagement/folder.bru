@@ -1,0 +1,18 @@
+meta {
+  name: AccessManagement
+  seq: 7
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "tokenType": "enterprise",
+      "orgNo": "991825827",
+      // "org": "digdir",
+      "scopes": "altinn:accessmanagement/authorizedparties.admin"
+  });
+  
+}

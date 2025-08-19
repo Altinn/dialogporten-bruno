@@ -1,0 +1,19 @@
+meta {
+  name: Get Resource
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: super-simple-service
+}
+
+settings {
+  encodeUrl: true
+}

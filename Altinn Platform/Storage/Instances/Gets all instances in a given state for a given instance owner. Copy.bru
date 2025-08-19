@@ -1,0 +1,29 @@
+meta {
+  name: Gets all instances in a given state for a given instance owner. Copy
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/sbl/instances/:instanceOwnerPartyId/:instanceGuid?language=nb
+  body: none
+  auth: inherit
+}
+
+params:query {
+  language: nb
+  ~: null
+}
+
+params:path {
+  instanceOwnerPartyId: {{PARTYID}}
+  instanceGuid: {{INSTANCEID}}
+}
+
+headers {
+  Ocp-Apim-Subscription-Key: {{SubscriptionKey}}
+}
+
+settings {
+  encodeUrl: true
+}

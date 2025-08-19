@@ -1,0 +1,22 @@
+meta {
+  name: Storage
+  seq: 8
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "tokenType": "enterprise",
+      "orgNo": "991825827",
+      "org": "ttd",
+      "scopes": "altinn:serviceowner/instances.read"
+  });
+  
+  
+  bru.setVar("PARTYID", "50759986");
+  bru.setVar("INSTANCEID", "26a7cdaf-4b1b-41f5-81a1-3ab1231ff895");
+  
+}

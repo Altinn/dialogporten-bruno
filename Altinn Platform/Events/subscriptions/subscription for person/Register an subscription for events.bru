@@ -1,0 +1,32 @@
+meta {
+  name: Register an subscription for events
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrlPlatform}}/events/api/v1/subscriptions
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  {
+    "endpoint": "https://webhook.site/6df50a9b-d2ba-4839-9970-c69eef484c9f?personal=14886498226",
+    "subjectFilter": "urn:altinn:organization:identifier-no:212475912",
+    "resourceFilter": "urn:altinn:resource:super-simple-service"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Requires information about endpoint to post events for subscribers.
+}

@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Dialogporten",
+  "name": "Altinn",
   "type": "collection",
   "ignore": [
     "node_modules",

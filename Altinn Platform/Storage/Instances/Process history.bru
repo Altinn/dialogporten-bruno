@@ -1,0 +1,20 @@
+meta {
+  name: Process history
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/instances/:partyid/:instanceid/process/history
+  body: none
+  auth: inherit
+}
+
+params:path {
+  partyid: {{PARTYID}}
+  instanceid: {{INSTANCEID}}
+}
+
+settings {
+  encodeUrl: true
+}

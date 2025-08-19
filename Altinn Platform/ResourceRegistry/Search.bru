@@ -1,0 +1,20 @@
+meta {
+  name: Search
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/Search?Id=ttd-altinn-events-automated-tests
+  body: none
+  auth: inherit
+}
+
+params:query {
+  Id: ttd-altinn-events-automated-tests
+  ~ResourceType: SystemResource
+}
+
+settings {
+  encodeUrl: true
+}

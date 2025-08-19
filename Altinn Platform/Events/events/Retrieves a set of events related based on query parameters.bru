@@ -1,0 +1,35 @@
+meta {
+  name: Retrieves a set of events related based on query parameters.
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrlPlatform}}/events/api/v1/events?after=0&resource=urn:altinn:resource:dodsbo.domstoladmin.api
+  body: none
+  auth: inherit
+}
+
+params:query {
+  after: 0
+  resource: urn:altinn:resource:dodsbo.domstoladmin.api
+  ~after: b4095c4f-26b7-4e43-810f-8fda385399e4
+  ~source: https://dialogporten.no/api/v1/dialogs%
+  ~subject: al
+  ~type: instance.created
+  ~type: instance.process.completed
+  ~size: 50
+  ~resource: urn:altinn:resource:super-simple-service
+  ~source: https://dialogporten.no/api/v1/dialogs/018a73cd-2b78-7182-a611-f581c6bef60d
+  ~after: 3acb53c2-eeee-4572-905c-a84e26131708
+  ~source: https://hendelsesliste.test.domstol.no/api/objects/c2a4a89d-f3e6-4654-8eef-230eca67d431
+}
+
+headers {
+  Accept: application/cloudevents+json
+  ~Altinn-AlternativeSubject: /org/991825827
+}
+
+settings {
+  encodeUrl: true
+}

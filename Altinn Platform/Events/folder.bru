@@ -1,0 +1,17 @@
+meta {
+  name: Events
+  seq: 5
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "tokenType": "enterprise",
+      "orgNo": "991825827", // Digdir
+      "org": "digdir",
+      "scopes": "altinn:events.publish altinn:events.subscribe"
+  });
+}

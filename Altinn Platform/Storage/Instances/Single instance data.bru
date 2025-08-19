@@ -1,0 +1,21 @@
+meta {
+  name: Single instance data
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/instances/:partyid/:instanceid/data/:dataid
+  body: none
+  auth: inherit
+}
+
+params:path {
+  partyid: {{PARTYID}}
+  instanceid: {{INSTANCEID}}
+  dataid: 
+}
+
+settings {
+  encodeUrl: true
+}
