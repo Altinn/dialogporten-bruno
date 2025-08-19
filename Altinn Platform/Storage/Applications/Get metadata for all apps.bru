@@ -1,0 +1,23 @@
+meta {
+  name: Get metadata for all apps
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/applications/:org
+  body: none
+  auth: inherit
+}
+
+params:path {
+  org: ttd
+}
+
+headers {
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+}

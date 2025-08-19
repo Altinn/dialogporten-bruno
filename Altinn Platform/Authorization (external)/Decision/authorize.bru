@@ -1,0 +1,94 @@
+meta {
+  name: authorize
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrlPlatform}}/authorization/api/v1/authorize
+  body: json
+  auth: inherit
+}
+
+headers {
+  Ocp-Apim-Subscription-Key: {{SubscriptionKey}}
+}
+
+body:json {
+  {
+      "Request": {
+          "Resource": [
+              {
+                  "Id": "r1",
+                  "Attribute": [
+                      {
+                          "AttributeId": "urn:altinn:resource",
+                          "Value": "super-simple-service"
+                      },
+                      {
+                          "AttributeId": "urn:altinn:organization:identifier-no",
+                          "Value": "212475912"
+                      }
+                  ]
+              },
+              {
+                  "Id": "r2",
+                  "Attribute": [
+                      {
+                          "AttributeId": "urn:altinn:resource",
+                          "Value": "super-simple-service"
+                      },
+                      {
+                          "AttributeId": "urn:altinn:person:identifier-no",
+                          "Value": "14886498226"
+                      }
+                  ]
+              }
+          ],
+          "Action": [
+              {
+                  "Id": "a1",
+                  "Attribute": [
+                      {
+                          "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                          "Value": "subscribe"
+                      }
+                  ]
+              }
+          ],
+          "AccessSubject": [
+              {
+                  "Id": "s1",
+                  "Attribute": [
+                      {
+                          "AttributeId": "urn:altinn:person:identifier-no",
+                          "Value": "14886498226"
+                      }
+                  ]
+              }
+          ],
+          "MultiRequests": {
+              "RequestReference": [
+                  {
+                      "ReferenceId": [
+                          "s1",
+                          "r1",
+                          "a1"
+                      ]
+                  },
+                  {
+                      "ReferenceId": [
+                          "s1",
+                          "r1",
+                          "a1"
+                      ]
+                  }
+              ]
+          }
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

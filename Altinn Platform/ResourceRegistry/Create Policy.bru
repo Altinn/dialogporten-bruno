@@ -1,0 +1,27 @@
+meta {
+  name: Create Policy
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/:Id/Policy
+  body: multipartForm
+  auth: inherit
+}
+
+params:path {
+  Id: super-simple-service
+}
+
+headers {
+  Content: text/xml
+}
+
+body:multipart-form {
+  policyFile: @file()
+}
+
+settings {
+  encodeUrl: true
+}

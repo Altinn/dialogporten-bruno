@@ -1,0 +1,30 @@
+meta {
+  name: Query events
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/instances/:instanceOwnerPartyId/:instanceGuid/events
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~eventTypes: <string>
+  ~from: <string>
+  ~to: <string>
+}
+
+params:path {
+  instanceOwnerPartyId: {{PARTYID}}
+  instanceGuid: {{INSTANCEID}}
+}
+
+headers {
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+}

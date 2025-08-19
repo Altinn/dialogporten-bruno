@@ -1,0 +1,68 @@
+meta {
+  name: Instances
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  (new Altinn(pm)).Authenticate({
+      "tokenType": "enterprise",
+      //"orgNo": "991825827", // Digdir/TTD
+      //"orgNo": "974760983",
+      //"org": "dsb",
+      "orgNo": "880455702",
+      "org": "tad",
+      // "org": "ssb",
+      "scopes": "altinn:serviceowner/instances.read altinn:storage/instances.syncadapter"
+  });
+  
+  
+  // //pm.collectionVariables.set("PARTYID", "50013832");
+  // //pm.collectionVariables.set("INSTANCEID", "acf2ae04-6e27-49a4-81c5-a6877d191645");
+  
+  // // pm.collectionVariables.set("PARTYID", "50055202");
+  // // pm.collectionVariables.set("INSTANCEID", "b251a497-ec6c-4269-862c-32d8a9de6884");
+  
+  
+  // TTD
+  // // pm.collectionVariables.set("PARTYID", "50126876");
+  // // pm.collectionVariables.set("INSTANCEID", "7eac5837-ce4c-42fc-a1d8-3bb85540b14e");
+  
+  
+  // SSB
+  // // pm.collectionVariables.set("PARTYID", "50168990");
+  // // pm.collectionVariables.set("INSTANCEID", "a1d4101a-65fa-44bc-b93c-3b272814874b");
+  
+  
+  // //pm.collectionVariables.set("PARTYID", "50892513");
+  // //pm.collectionVariables.set("INSTANCEID", "8b308675-9fbe-4d6c-aa80-392a72aafed8");
+  
+  bru.setVar("PARTYID", "50923188");
+  // //pm.collectionVariables.set("INSTANCEID", "f75f9004-6949-4cdd-9039-0c593edba9ca");
+  bru.setVar("INSTANCEID", "3217ad00-4218-47c4-9cec-1749ae5df3d3");
+  
+  //50923188/f75f9004-6949-4cdd-9039-0c593edba9ca
+  
+  // Sirius
+  bru.setVar("PARTYID", "51536437");
+  // //pm.collectionVariables.set("INSTANCEID", "f75f9004-6949-4cdd-9039-0c593edba9ca");
+  bru.setVar("INSTANCEID", "d6ae1681-b2e9-4f4a-9aca-2cd321a8cb36");
+  
+  // KRI prefill
+  bru.setVar("PARTYID", "51701090");
+  bru.setVar("INSTANCEID", "0dbc1da6-f744-4fff-83bc-131e7988a1bb");
+  
+  
+  bru.setVar("SBLACCESS_APIKEY", "6f8ee9d73d454e87abc60d28b5189b5b");
+  bru.setVar("APPACCESS_APIKEY", "3c36605558524707aa41588db9099cac");
+  
+  // Pågående sak hos Tolletaten
+  bru.setVar("PARTYID", "50759986");
+  bru.setVar("INSTANCEID", "26a7cdaf-4b1b-41f5-81a1-3ab1231ff895");
+  
+  
+  
+}

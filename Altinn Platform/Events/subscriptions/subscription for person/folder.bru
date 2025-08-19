@@ -1,0 +1,18 @@
+meta {
+  name: subscription for person
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "tokenType": "person",
+      "scopes": "altinn:events.subscribe",
+      "pid": "14886498226", // ORDINÆR HJELPELINJE, DAGL for 212475912
+      "partyId": "51198414", // ORDINÆR HJELPELINJE (TT02)
+      "userId": "1263321", // ORDINÆR HJELPELINJE (TT02)
+  });
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Update policy
+  type: http
+  seq: 11
+}
+
+put {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/:Id/Policy
+  body: multipartForm
+  auth: inherit
+}
+
+params:path {
+  Id: super-simple-service
+}
+
+body:multipart-form {
+  policyFile: @file()
+}
+
+settings {
+  encodeUrl: true
+}

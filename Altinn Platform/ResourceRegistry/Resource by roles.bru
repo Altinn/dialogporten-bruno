@@ -1,0 +1,22 @@
+meta {
+  name: Resource by roles
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/bysubjects
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    "urn:altinn:rolecode:siskd",
+    "urn:altinn:rolecode:dagl"
+  ]
+}
+
+settings {
+  encodeUrl: true
+}

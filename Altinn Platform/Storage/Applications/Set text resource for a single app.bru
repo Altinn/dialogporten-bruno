@@ -1,0 +1,110 @@
+meta {
+  name: Set text resource for a single app
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrlPlatform}}/storage/api/v1/applications/:org/:app/texts/
+  body: json
+  auth: inherit
+}
+
+params:path {
+  org: ttd
+  app: testdriver-for-arbeidsflate
+}
+
+headers {
+  Accept: application/json
+  Ocp-Apim-Subscription-Key: {{SubscriptionKey}}
+}
+
+body:json {
+  {
+      "id": "ttd-testdriver-for-arbeidsflate-nb",
+      "org": "ttd",
+      "language": "nb",
+      "resources": [
+          {
+              "id": "dp.title",
+              "value": "Testdriver for Arbeidsflate - TE-oppgitt tittel",
+              "variables": null
+          },
+          {
+              "id": "Side1.Input-2RCDMG.title",
+              "value": "Bekreft type:",
+              "variables": null
+          },
+          {
+              "id": "Forsiden.RadioButtons-K7RXo2.help",
+              "value": "Dette for at vi enklere skal kunne gi deg rådgivning basert på din situasjon.",
+              "variables": null
+          },
+          {
+              "id": "Forsiden.RadioButtons-K7RXo2.description",
+              "value": "",
+              "variables": null
+          },
+          {
+              "id": "Forsiden.RadioButtons-K7RXo2.title",
+              "value": "Hvilke av disse observerer du oftest?",
+              "variables": null
+          },
+          {
+              "id": "Skjemasiden.TextArea-Jtmm3x.title",
+              "value": "Gi en nærmere beskrivelse av observasjonen:",
+              "variables": null
+          },
+          {
+              "id": "Skjemasiden.Dropdown-Ra6M3D.title",
+              "value": "Hvilken type troll observerte du?",
+              "variables": null
+          },
+          {
+              "id": "Skjemasiden.Input-HPSPn2.title",
+              "value": "Hvorfor besøker du denne siden?",
+              "variables": null
+          },
+          {
+              "id": "Skjemasiden.Button-o5RORh.title",
+              "value": "Send inn",
+              "variables": null
+          },
+          {
+              "id": "Skjemasiden.Input-Kl2gyP.title",
+              "value": "Hva heter du?",
+              "variables": null
+          },
+          {
+              "id": "Skjemasiden.Input-6Q2mnb.title",
+              "value": "Hva er ditt ønske?",
+              "variables": null
+          },
+          {
+              "id": "Side1.Paragraph-8z4Sft.title",
+              "value": "Med dette skjemaet kan du frembringe dialoger i arbeidsflaten og oppdatere status på disse.",
+              "variables": null
+          },
+          {
+              "id": "appName",
+              "value": "Testdriver for Arbeidsflate",
+              "variables": null
+          },        
+          {
+              "id": "next",
+              "value": "Neste",
+              "variables": null
+          },
+          {
+              "id": "back",
+              "value": "Forrige",
+              "variables": null
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

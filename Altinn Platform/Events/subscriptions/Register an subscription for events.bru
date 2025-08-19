@@ -1,0 +1,31 @@
+meta {
+  name: Register an subscription for events.
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrlPlatform}}/events/api/v1/subscriptions
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  {
+    "endpoint": "https://eosmgovlpmlz4lx.m.pipedream.net?code=SUPERSECRETKEY",
+    "resourceFilter": "urn:altinn:resource:super-simple-service"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Requires information about endpoint to post events for subscribers.
+}

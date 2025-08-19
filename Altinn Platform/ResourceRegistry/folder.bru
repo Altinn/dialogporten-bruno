@@ -1,0 +1,21 @@
+meta {
+  name: ResourceRegistry
+  seq: 1
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+     // "orgNo": "713431400", // Digdir yt01
+     "orgNo": "991825827", // Digdir
+      // "orgNo": "889640782", // NAV
+      // "orgNo": "974760673", // BRG
+      // "orgNo": "974761076", // Skatteetaten
+     "org": "digdir",
+     "tokenType": "enterprise",
+     "scopes": "altinn:resourceregistry/resource.write altinn:resourceregistryresource.read altinn:resourceregistry/resource.admin"
+  });
+}

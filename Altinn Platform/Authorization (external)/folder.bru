@@ -1,0 +1,17 @@
+meta {
+  name: Authorization (external)
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+script:pre-request {
+  await (new Altinn(req)).Authenticate({
+      "orgNo": "991825827", // Digdir
+      //"orgNo": "889640782", // NAV
+      "tokenType": "enterprise",
+      "scopes": "altinn:authorization/authorize.admin"
+  });
+}

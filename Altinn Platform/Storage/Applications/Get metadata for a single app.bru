@@ -1,0 +1,24 @@
+meta {
+  name: Get metadata for a single app
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/applications/:org/:app
+  body: none
+  auth: inherit
+}
+
+params:path {
+  org: ttd
+  app: apps-test-prod
+}
+
+headers {
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+}

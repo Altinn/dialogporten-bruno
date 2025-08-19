@@ -1,0 +1,27 @@
+meta {
+  name: Resource Owner authorized parties
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrlPlatform}}/accessmanagement/api/v1/resourceowner/authorizedparties?includeAltinn2=true
+  body: json
+  auth: inherit
+}
+
+params:query {
+  includeAltinn2: true
+}
+
+body:json {
+  
+  {
+     "type": "urn:altinn:person:identifier-no",
+    "value": "07117000413"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

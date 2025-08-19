@@ -1,0 +1,21 @@
+meta {
+  name: Query instances
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/instances?org=ttd&size=1000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  org: ttd
+  size: 1000
+  ~instanceOwner.partyId: 50756302
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Single instance
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrlPlatform}}/storage/api/v1/instances/:partyid/:instanceid
+  body: none
+  auth: inherit
+}
+
+params:path {
+  partyid: {{PARTYID}}
+  instanceid: {{INSTANCEID}}
+}
+
+settings {
+  encodeUrl: true
+}

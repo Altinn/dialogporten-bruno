@@ -1,0 +1,66 @@
+meta {
+  name: Create Resource
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource
+  body: json
+  auth: inherit
+}
+
+params:query {
+  ~ResourceType: SystemResource
+}
+
+body:json {
+  {
+      "identifier": "super-simple-service",
+      "title": {
+          "en": "Testing resource for Dialogporten",
+          "nb-no": "Testressurs for Dialogporten",
+          "nn-no": "Testressurs for Dialogporten"
+      },
+      "description": {
+          "en": "Testing resource for Dialogporten",
+          "nb-no": "Testressurs for Dialogporten",
+          "nn-no": "Testressurs for Dialogporten"
+      },
+      "rightDescription": {
+          "en": "Testing resource for Dialogporten",
+          "nb-no": "Testressurs for Dialogporten",
+          "nn-no": "Testressurs for Dialogporten"
+      },
+      "homepage": "https://digdir.github.io/dialogporten/",
+      "status": "Active",
+      "validFrom": "2023-03-27T12:00:00Z",
+      "validTo": "2099-12-24T23:59:59",
+      "isPartOf": "Altinn",
+      "isPublicService": false,
+      "thematicArea": "",
+      "resourceReferences": [],
+      "isComplete": true,
+      "delegable": false,
+      "visible": false,
+      "hasCompetentAuthority": {
+          "organization": "991825827",
+          "orgcode": "Digitaliseringsdirektoratet",
+          "name": {
+              "en": "Digitaliseringsdirektoratet",
+              "nb-no": "Digitaliseringsdirektoratet",
+              "nn-no": "Digitaliseringsdirektoratet"
+          }
+      },
+      "keywords": [],
+      "sector": [
+          "public"
+      ],
+      "resourceType": "GenericAccessResource",
+      "mainLanguage": "nb"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,128 @@
+meta {
+  name: update metadata for a single app
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrlPlatform}}/storage/api/v1/applications/:org/:app
+  body: json
+  auth: inherit
+}
+
+params:path {
+  org: ttd
+  app: storage-end-to-end
+}
+
+headers {
+  Accept: application/json
+  Ocp-Apim-Subscription-Key: {{SubscriptionKey}}
+}
+
+body:json {
+  {
+      "id": "ttd/storage-end-to-end",
+      "versionId": "9bab67b31aaa78f9a64bd32c182c316ffbb1f1c7",
+      "org": "ttd",
+      "title": {
+          "nb": "storage-end-to-end"
+      },
+      "validFrom": "2025-04-24T11:28:41.3784895Z",
+      "dataTypes": [
+          {
+              "id": "ref-data-as-pdf",
+              "allowedContentTypes": [
+                  "application/pdf"
+              ],
+              "maxCount": 0,
+              "minCount": 0,
+              "enablePdfCreation": true,
+              "enableFileScan": false,
+              "validationErrorOnPendingFileScan": false,
+              "enabledFileAnalysers": [],
+              "enabledFileValidators": []
+          },
+          {
+              "id": "correspondence",
+              "allowedContentTypes": [
+                  "application/xml"
+              ],
+              "appLogic": {
+                  "autoCreate": true,
+                  "classRef": "Altinn.App.Models.CorrespondenceV1",
+                  "allowAnonymousOnStateless": false,
+                  "autoDeleteOnProcessEnd": false,
+                  "disallowUserCreate": false,
+                  "disallowUserDelete": false,
+                  "allowInSubform": false
+              },
+              "taskId": "Task_1",
+              "maxCount": 1,
+              "minCount": 1,
+              "enablePdfCreation": true,
+              "enableFileScan": false,
+              "validationErrorOnPendingFileScan": false,
+              "enabledFileAnalysers": [],
+              "enabledFileValidators": []
+          },
+          {
+              "id": "signature",
+              "allowedContentTypes": [
+                  "application/json"
+              ],
+              "taskId": "Task_2",
+              "maxSize": 25,
+              "maxCount": 1,
+              "minCount": 0,
+              "enablePdfCreation": true,
+              "enableFileScan": false,
+              "validationErrorOnPendingFileScan": false,
+              "enabledFileAnalysers": [],
+              "enabledFileValidators": []
+          },
+          {
+              "id": "attachment",
+              "allowedContentTypes": [],
+              "taskId": "Task_1",
+              "maxSize": 25,
+              "maxCount": 25,
+              "minCount": 1,
+              "enablePdfCreation": true,
+              "enableFileScan": false,
+              "validationErrorOnPendingFileScan": false,
+              "enabledFileAnalysers": [],
+              "enabledFileValidators": []
+          }
+      ],
+      "messageBoxConfig": {
+         "syncAdapterSettings": {
+              "disableSync": false,
+              "disableCreate": false,
+              "disableDelete": false,
+              "disableAddActivities": false,
+              "disableAddTransmissions": false,
+              "disableSyncDueAt": false,
+              "disableSyncStatus": false,
+              "disableSyncContentTitle": false,
+              "disableSyncContentSummary": false,
+              "disableSyncAttachments": false,
+              "disableSyncApiActions": false,
+              "disableSyncGuiActions": false
+          }
+      },
+      "partyTypesAllowed": {
+          "bankruptcyEstate": false,
+          "organisation": false,
+          "person": false,
+          "subUnit": false
+      },
+      "autoDeleteOnProcessEnd": false,
+      "disallowUserInstantiation": false
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

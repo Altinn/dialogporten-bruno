@@ -1,0 +1,19 @@
+meta {
+  name: Updated
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrlPlatform}}/resourceregistry/api/v1/resource/updated
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~ResourceType: SystemResource
+}
+
+settings {
+  encodeUrl: true
+}
