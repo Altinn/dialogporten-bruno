@@ -4,7 +4,8 @@
   "type": "collection",
   "ignore": [
     "node_modules",
-    ".git"
+    ".git",
+    ".idea"
   ],
   "size": 1.015777587890625,
   "filesCount": 466,
