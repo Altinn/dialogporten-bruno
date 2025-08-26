@@ -1,0 +1,30 @@
+meta {
+  name: Bulk set
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/endusercontext/systemlabels/actions/bulkset?enduserid=urn:altinn:person:identifier-no:08895699684
+  body: json
+  auth: inherit
+}
+
+params:query {
+  enduserid: urn:altinn:person:identifier-no:08895699684
+}
+
+body:json {
+  {
+      "systemLabels": ["Bin"],
+      "dialogs": [
+          { "dialogId": "0196f8bb-7337-7669-a78e-7106f4fd82af" },
+          { "dialogId": "0196f8bb-7336-73ae-b22b-b6638c48f7dd" },
+          { "dialogId": "0196f8bb-7336-73ae-b139-48707cb72b01"}
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
