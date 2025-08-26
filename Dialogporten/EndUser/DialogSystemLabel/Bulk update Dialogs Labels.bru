@@ -1,0 +1,22 @@
+meta {
+  name: Bulk update Dialogs Labels
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/v1/enduser/dialogs/context/systemLabels/actions/bulkUpdate
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "systemLabels": ["bin"],
+      "dialogIds": ["0198e101-368f-72e6-85f1-1f06d5e5fdcf", "0198e101-a46d-7702-b3aa-897ba8d47562"]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
