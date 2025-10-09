@@ -1,0 +1,29 @@
+meta {
+  name: EnterpriseToken
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://altinn-testtools-token-generator.azurewebsites.net/api/GetEnterpriseToken?org=digdir&env=tt02&scopes=digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search digdir:dialogporten digdir:dialogporten.developer.test&ttl=86400
+  body: none
+  auth: basic
+}
+
+params:query {
+  org: digdir
+  env: tt02
+  scopes: digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search digdir:dialogporten digdir:dialogporten.developer.test
+  ttl: 86400
+  ~partyId: 0
+  ~orgNo: 991825827
+}
+
+auth:basic {
+  username: {{process.env.TokenGeneratorUserName}}
+  password: {{process.env.TokenGeneratorPassword}}
+}
+
+settings {
+  encodeUrl: true
+}
