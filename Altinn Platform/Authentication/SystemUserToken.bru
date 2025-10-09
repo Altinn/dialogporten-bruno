@@ -1,0 +1,27 @@
+meta {
+  name: SystemUserToken
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://altinn-testtools-token-generator.azurewebsites.net/api/GetSystemUserToken?env=tt02&scopes=digdir:dialogporten&systemUserId=aaa88f01-d847-2973-9579-76f658b42caa&systemUserOrg=999888777
+  body: none
+  auth: basic
+}
+
+params:query {
+  env: tt02
+  scopes: digdir:dialogporten
+  systemUserId: aaa88f01-d847-2973-9579-76f658b42caa
+  systemUserOrg: 999888777
+}
+
+auth:basic {
+  username: {{process.env.TokenGeneratorUserName}}
+  password: {{process.env.TokenGeneratorPassword}}
+}
+
+settings {
+  encodeUrl: true
+}
