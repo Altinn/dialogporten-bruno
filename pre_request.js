@@ -26,6 +26,17 @@ const Altinn = class {
      */
     async _authenticateToken(settings) {
         // --- Early exit conditions ---
+        
+        // Check if Authorization header is already set at request level
+        const existingAuth = this.req.getHeader("Authorization");
+        if (existingAuth) {
+            console.log("Skipping token generation: Authorization header already set at request level.");
+            // Extract token from "Bearer <token>" format
+            const token = existingAuth.replace(/^Bearer\s+/i, '');
+            this._logRequestDetails(token);
+            return;
+        }
+        
         if (this._getVariable("DoNotSetAuthorizationHeader", null)) {
             console.log("Skipping token generation: 'DoNotSetAuthorizationHeader' is set.");
             return;
@@ -51,13 +62,14 @@ const Altinn = class {
         const tokenParams = this._prepareTokenParameters(settings);
         const cacheKey = this._createCacheKey(tokenParams);
 
-        const cachedToken = this._getCachedToken(cacheKey);
+        const cachedToken = this._getCachedToken(cacheKey, tokenParams);
         if (cachedToken) {
-            console.log(`Using cached token, valid until ${new Date(cachedToken.validUntil).toLocaleString()}`);
             this._setAuthorizationHeader(cachedToken.token);
             return;
         }
 
+        // Log token parameters when fetching new token (Postman-style)
+        this._logTokenParameters(tokenParams);
         console.log(`Fetching new ${tokenParams.tokenType} token with scopes '${tokenParams.scopes}'`);
         const newToken = await this._fetchNewToken(tokenParams);
         this._setCachedToken(cacheKey, newToken);
@@ -192,11 +204,14 @@ const Altinn = class {
         bru.setEnvVar(Altinn.TOKEN_CACHE_VAR_NAME, cacheString);
     }
 
-    _getCachedToken(key) {
+    _getCachedToken(key, tokenParams) {
         const cache = this._getCache();
         const cachedItem = cache[key];
 
         if (cachedItem && cachedItem.validUntil > Date.now()) {
+            // Log token parameters and cache validity (Postman-style)
+            this._logTokenParameters(tokenParams);
+            console.log(`Cached token valid until ${new Date(cachedItem.validUntil).toString()}`);
             return cachedItem;
         }
         return null;
@@ -227,6 +242,9 @@ const Altinn = class {
         // Clear the header first to prevent potential duplicates
         this.req.setHeader(headerName, null);
         this.req.setHeader(headerName, `Bearer ${token}`);
+        
+        // Log request details (Postman-style)
+        this._logRequestDetails(token);
     }
 
     _getVariable(name, defaultValue = undefined) {
@@ -258,6 +276,53 @@ const Altinn = class {
                 throw new Error(`Missing required variable '${varName}'. Please ensure it's set in your collection's .env file.`);
             }
         }
+    }
+
+    /**
+     * Logs token parameters in Postman style
+     */
+    _logTokenParameters(params) {
+        // Only log non-null parameters that are relevant
+        const relevantParams = {};
+        const keysToLog = ['orgNo', 'tokenType', 'org', 'scopes', 'app', 'partyId', 'userId', 'pid', 'systemUserId', 'systemUserOrg'];
+        
+        keysToLog.forEach(key => {
+            if (params[key] !== null && params[key] !== undefined && params[key] !== 'platform.undefined') {
+                relevantParams[key] = params[key];
+            }
+        });
+        
+        if (Object.keys(relevantParams).length > 0) {
+            console.log(relevantParams);
+        }
+    }
+
+    /**
+     * Logs request details in Postman style
+     */
+    _logRequestDetails(token) {
+        const method = this.req.getMethod();
+        const url = this.req.getUrl();
+        
+        console.log(`${method} ${url}:`);
+        
+        const requestLog = {
+            "Request Headers": {
+                "authorization": `Bearer ${token}`
+            }
+        };
+        
+        // Add other headers if available
+        const headers = this.req.getHeaders();
+        if (headers) {
+            Object.keys(headers).forEach(key => {
+                if (key.toLowerCase() !== 'authorization') {
+                    requestLog["Request Headers"][key] = headers[key];
+                }
+            });
+        }
+        
+        console.log(requestLog);
     }
 };
 
