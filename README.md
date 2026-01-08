@@ -28,6 +28,12 @@ Bruno is an open-source API client for exploring and testing APIs. You can insta
   - Flatpak: `flatpak install flathub com.usebruno.Bruno`
   - Snap: `sudo snap install bruno`
 
+> **⚠️ Important: Safe Mode Required**
+> 
+> This collection must be run in **Safe Mode**, not Developer Mode. The pre-request scripts use Bruno's bundled modules (like axios) which are only available in Safe Mode.
+> 
+> To check/change your mode: Click the **JavaScript Sandbox** button in the toolbar (shows as a shield icon in Safe Mode or `</>` in Developer Mode), located between the settings gear and the Environment dropdown. Select **Safe Mode**.
+
 ### 2. Open the Collection
 
 Once Bruno is installed:
