@@ -5,14 +5,14 @@ meta {
 }
 
 get {
-  url: https://altinn-testtools-token-generator.azurewebsites.net/api/GetEnterpriseToken?org=digdir&env=tt02&scopes=digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search digdir:dialogporten digdir:dialogporten.developer.test&ttl=86400
+  url: https://altinn-testtools-token-generator.azurewebsites.net/api/GetEnterpriseToken?org=digdir&env=at23&scopes=digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search digdir:dialogporten digdir:dialogporten.developer.test&ttl=86400
   body: none
   auth: basic
 }
 
 params:query {
   org: digdir
-  env: tt02
+  env: at23
   scopes: digdir:dialogporten.serviceprovider digdir:dialogporten.serviceprovider.search digdir:dialogporten digdir:dialogporten.developer.test
   ttl: 86400
   ~partyId: 0
@@ -26,4 +26,5 @@ auth:basic {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

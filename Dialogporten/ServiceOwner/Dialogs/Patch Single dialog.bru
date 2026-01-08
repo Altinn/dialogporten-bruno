@@ -15,7 +15,7 @@ params:query {
 }
 
 params:path {
-  dialogId: 019593e2-4085-75e4-8d81-e2b503466294
+  dialogId: 019a7c9c-5559-750a-974a-17dab58eae13
 }
 
 headers {
@@ -26,8 +26,69 @@ body:json {
   [
       {
           "op": "replace",
-          "path": "progress",
-          "value": 2
+          "path": "/transmissions/0",
+      "value": [[{
+                    "authorizationAttribute": "not-authorized",
+              "type": "Information",
+              "sender": {
+                  "actorType": "serviceOwner"
+              },
+              "attachments": [
+                  {
+                      "displayName": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Visningsnavn for forsendelsesvedlegg "
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission attachment display name"
+                          }
+                      ],
+                      "urls": [
+                          {
+                              "url": "https://digdir.apps.tt02.altinn.no/some-other-url",
+                              "consumerType": "Gui"
+                          }
+                      ]
+                  }
+              ],
+              "content": {
+                  "ContentReference": {
+              "mediaType": "application/vnd.dialogporten.frontchannelembed+json;type=markdown",
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "https://nrk.no"
+                  }
+              ]
+                  },
+                  "title": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Forsendelsesstittel"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission title"
+                          }
+                      ]
+                  },
+                  "summary": {
+                      "value": [
+                          {
+                              "languageCode": "nb",
+                              "value": "Transmisjon oppsummering"
+                          },
+                          {
+                              "languageCode": "en",
+                              "value": "Transmission summary"
+                          }
+                      ]
+                  }
+              }
+      }
       }
   ]
 }

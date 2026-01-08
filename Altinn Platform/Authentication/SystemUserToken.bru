@@ -5,16 +5,16 @@ meta {
 }
 
 get {
-  url: https://altinn-testtools-token-generator.azurewebsites.net/api/GetSystemUserToken?env=tt02&scopes=digdir:dialogporten&systemUserId=aaa88f01-d847-2973-9579-76f658b42caa&systemUserOrg=999888777
+  url: https://altinn-testtools-token-generator.azurewebsites.net/api/GetSystemUserToken?env=at23&scopes=digdir:dialogporten altinn:correspondence.read altinn:instances.read&systemUserId=e3b87b08-dce6-4edd-8308-db887950a83b&systemUserOrg=312545071
   body: none
   auth: basic
 }
 
 params:query {
-  env: tt02
-  scopes: digdir:dialogporten
-  systemUserId: aaa88f01-d847-2973-9579-76f658b42caa
-  systemUserOrg: 999888777
+  env: at23
+  scopes: digdir:dialogporten altinn:correspondence.read altinn:instances.read
+  systemUserId: e3b87b08-dce6-4edd-8308-db887950a83b
+  systemUserOrg: 312545071
 }
 
 auth:basic {
@@ -24,4 +24,5 @@ auth:basic {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
