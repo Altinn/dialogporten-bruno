@@ -8,7 +8,9 @@ auth {
 }
 
 script:pre-request {
-  (new Altinn(pm)).Authenticate({
+  const Altinn = require(bru.cwd() + '/pre_request.js');
+  
+  await (new Altinn(req)).Authenticate({
       "tokenType": "enterprise",
       //"orgNo": "991825827", // Digdir/TTD
       //"orgNo": "974760983",

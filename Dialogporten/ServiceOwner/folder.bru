@@ -4,6 +4,8 @@ meta {
 }
 
 script:pre-request {
+  const Altinn = require(bru.cwd() + '/pre_request.js');
+  
   await (new Altinn(req)).Authenticate({
       "orgNo": "991825827", // Digdir
       // "orgNo": "974761076", // Skatteetaten

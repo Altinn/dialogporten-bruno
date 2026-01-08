@@ -3,7 +3,7 @@ meta {
 }
 
 script:pre-request {
-  const altinn = new Altinn(req);
+  const Altinn = require(bru.cwd() + '/pre_request.js');
   
   await (new Altinn(req)).Authenticate({
       /* */
