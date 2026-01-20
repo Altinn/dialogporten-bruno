@@ -54,7 +54,7 @@ if (typeof Altinn === "undefined") {
             const cacheKey = this._createCacheKey(tokenParams);
 
             const cachedToken = this._getCachedToken(cacheKey);
-            if (cachedToken) {
+            if (tokenParams.useCache && cachedToken) {
                 console.log(`Using cached token, valid until ${new Date(cachedToken.validUntil).toLocaleString()}`);
                 this._setAuthorizationHeader(cachedToken.token);
                 return;
@@ -80,11 +80,14 @@ if (typeof Altinn === "undefined") {
                 partyId: settings.partyId ?? null,
                 userId: settings.userId ?? null,
                 userName: settings.userName ?? null,
+                email: settings.email ?? null,
                 systemUserId: settings.systemUserId ?? null,
                 systemUserOrg: settings.systemUserOrg ?? null,
                 pid: settings.pid ?? null,
                 env: this._getVariable("tokenEnvName", "at23"),
                 ttl: Altinn.DEFAULT_TOKEN_TTL_SECONDS,
+                authLvl: settings.authLvl ?? "3",
+                useCache: settings.useCache ?? true
             };
         }
 
@@ -99,6 +102,8 @@ if (typeof Altinn === "undefined") {
                 `${this._getVariable("TokenGeneratorUserName")}:${this._getVariable("TokenGeneratorPassword")}`
             ).toString('base64');
 
+            console.log("Requesting token from URL:", tokenUrl);
+
             try {
                 const response = await axios.get(tokenUrl, {
                     headers: { 'Authorization': `Basic ${basicAuthString}` }
@@ -110,6 +115,7 @@ if (typeof Altinn === "undefined") {
                 return response.data;
             } catch (error) {
                 console.error("Failed to fetch new token:", error.message);
+                console.log("Request URL:", tokenUrl);
                 throw error;
             }
         }
@@ -123,7 +129,8 @@ if (typeof Altinn === "undefined") {
             const tokenTypeConfig = {
                 enterprise: { path: "/GetEnterpriseToken", params: ["orgNo", "org", "partyId", "supplierOrgNo"] },
                 platform: { path: "/GetPlatformToken", params: ["app"] },
-                person: { path: "/GetPersonalToken", params: ["pid", "partyId", "userId"] },
+                person: { path: "/GetPersonalToken", params: ["pid", "partyId", "userId", "authLvl"] },
+                selfidentified: { path: "/GetSelfIdentifiedUserToken", params: ["email", "userName", "userId", "partyUuid", "partyId"] },
                 enterpriseuser: { path: "/GetEnterpriseUserToken", params: ["orgNo", "partyId", "userId", "userName"] },
                 systemuser: { path: "/GetSystemUserToken", params: ["systemUserId", "systemUserOrg"] },
             };
