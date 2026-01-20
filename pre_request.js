@@ -62,8 +62,9 @@ const Altinn = class {
         const tokenParams = this._prepareTokenParameters(settings);
         const cacheKey = this._createCacheKey(tokenParams);
 
-        const cachedToken = this._getCachedToken(cacheKey, tokenParams);
-        if (cachedToken) {
+        const cachedToken = this._getCachedToken(cacheKey);
+        if (tokenParams.useCache && cachedToken) {
+            console.log(`Using cached token, valid until ${new Date(cachedToken.validUntil).toLocaleString()}`);
             this._setAuthorizationHeader(cachedToken.token);
             return;
         }
@@ -90,13 +91,18 @@ const Altinn = class {
             partyId: settings.partyId ?? null,
             userId: settings.userId ?? null,
             userName: settings.userName ?? null,
+            email: settings.email ?? null,
             systemUserId: settings.systemUserId ?? null,
             systemUserOrg: settings.systemUserOrg ?? null,
             pid: settings.pid ?? null,
             env: this._getVariable("tokenEnvName", "at23"),
             ttl: Altinn.DEFAULT_TOKEN_TTL_SECONDS,
+            authLvl: settings.authLvl ?? "3",
+            useCache: settings.useCache ?? true
         };
     }
+
+
 
     /**
      * Fetches a new token from the remote generator service.
@@ -114,12 +120,15 @@ const Altinn = class {
                 headers: { 'Authorization': `Basic ${basicAuthString}` }
             });
 
+            console.log("Requesting token from URL:", tokenUrl);
+
             if (response.status !== 200) {
                 throw new Error(`Token generator responded with status ${response.status}: ${response.data}`);
             }
             return response.data;
         } catch (error) {
             console.error("Failed to fetch new token:", error.message);
+            console.log("Request URL:", tokenUrl);
             throw error;
         }
     }
@@ -135,6 +144,7 @@ const Altinn = class {
             platform: { path: "/GetPlatformToken", params: ["app"] },
             person: { path: "/GetPersonalToken", params: ["pid", "partyId", "userId"] },
             enterpriseuser: { path: "/GetEnterpriseUserToken", params: ["orgNo", "partyId", "userId", "userName"] },
+            selfidentified: { path: "/GetSelfIdentifiedUserToken", params: ["email", "partyId", "userId", "userName", "authLvl"] },
             systemuser: { path: "/GetSystemUserToken", params: ["systemUserId", "systemUserOrg"] },
         };
 
