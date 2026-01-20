@@ -62,7 +62,7 @@ const Altinn = class {
         const tokenParams = this._prepareTokenParameters(settings);
         const cacheKey = this._createCacheKey(tokenParams);
 
-        const cachedToken = this._getCachedToken(cacheKey);
+        const cachedToken = this._getCachedToken(cacheKey, tokenParams);
         if (tokenParams.useCache && cachedToken) {
             console.log(`Using cached token, valid until ${new Date(cachedToken.validUntil).toLocaleString()}`);
             this._setAuthorizationHeader(cachedToken.token);
