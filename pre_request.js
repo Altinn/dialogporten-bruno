@@ -144,7 +144,8 @@ const Altinn = class {
             platform: { path: "/GetPlatformToken", params: ["app"] },
             person: { path: "/GetPersonalToken", params: ["pid", "partyId", "userId"] },
             enterpriseuser: { path: "/GetEnterpriseUserToken", params: ["orgNo", "partyId", "userId", "userName"] },
-            selfidentified: { path: "/GetSelfIdentifiedUserToken", params: ["email", "partyId", "userId", "userName", "authLvl"] },
+            selfidentified: { path: "/GetSelfIdentifiedUserToken", params: ["partyId", "userId", "userName", "authLvl"] },
+            selfregisteredemail: { path: "/GetSelfRegisteredEmailUserToken", params: ["partyId", "userId", "email", "authLvl"] },
             systemuser: { path: "/GetSystemUserToken", params: ["systemUserId", "systemUserOrg"] },
         };
 
