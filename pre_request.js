@@ -146,7 +146,7 @@ const Altinn = class {
             enterpriseuser: { path: "/GetEnterpriseUserToken", params: ["orgNo", "partyId", "userId", "userName"] },
             selfidentified: { path: "/GetSelfIdentifiedUserToken", params: ["partyId", "userId", "userName", "authLvl"] },
             selfregisteredemail: { path: "/GetSelfRegisteredEmailUserToken", params: ["partyId", "userId", "email", "authLvl"] },
-            systemuser: { path: "/GetSystemUserToken", params: ["systemUserId", "systemUserOrg"] },
+            systemuser: { path: "/GetSystemUserToken", params: ["systemUserId", "systemUserOrg"] }
         };
 
         const config = tokenTypeConfig[params.tokenType];
