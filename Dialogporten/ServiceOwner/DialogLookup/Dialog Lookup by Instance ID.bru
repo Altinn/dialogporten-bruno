@@ -1,0 +1,15 @@
+meta {
+  name: Dialog Lookup by Instance ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/serviceowner/dialoglookup?instanceRef=urn:altinn:instance-id:50094219/4c00bec2-0000-4001-8001-4c00bec20001
+  body: none
+  auth: none
+}
+
+params:query {
+  instanceRef: urn:altinn:instance-id:50094219/4c00bec2-0000-4001-8001-4c00bec20001
+}

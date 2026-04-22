@@ -1,0 +1,15 @@
+meta {
+  name: Dialog Lookup
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/enduser/dialoglookup?instanceRef=urn:altinn:dialog-id:019db48d-9998-75a8-a320-846b49985083
+  body: none
+  auth: none
+}
+
+params:query {
+  instanceRef: urn:altinn:dialog-id:019db48d-9998-75a8-a320-846b49985083
+}
