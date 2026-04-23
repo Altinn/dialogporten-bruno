@@ -1,0 +1,78 @@
+meta {
+  name: Update transmission
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/v1/serviceowner/dialogs/:dialogId/transmissions/:transmissionId
+  body: json
+  auth: none
+}
+
+params:path {
+  dialogId: a1f99001-ed97-f176-b3d9-f4d04847b140
+  transmissionId: 3efb9001-18af-0c72-8e84-02dc88d1f7e1
+}
+
+headers {
+  Content-Type: application/json
+  Accept: text/plain
+}
+
+body:json {
+  {
+      "id": "3efb9001-18af-0c72-8e84-02dc88d1f7e1",
+      "type": "Information",
+      "authorizationAttribute": "element1",
+      "sender": {
+          "actorType": "serviceOwner"
+      },
+      "attachments": [
+          {
+              "displayName": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Oppdatert vedleggstittel"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "Updated attachment title"
+                  }
+              ],
+              "urls": [
+                  {
+                      "url": "https://digdir.apps.tt02.altinn.no/some-other-url",
+                      "consumerType": "Gui"
+                  }
+              ]
+          }
+      ],
+      "content": {
+          "title": {
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Oppdatert forsendelsestittel"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "Updated transmission title"
+                  }
+              ]
+          },
+          "summary": {
+              "value": [
+                  {
+                      "languageCode": "nb",
+                      "value": "Oppdatert oppsummering for transmisjonen"
+                  },
+                  {
+                      "languageCode": "en",
+                      "value": "Updated transmission summary"
+                  }
+              ]
+          }
+      }
+  }
+}
